@@ -1,0 +1,91 @@
+import java.util.ArrayList;
+/**
+ *
+ * @author mohni
+ */
+public class Student extends Person{
+    private String major;
+    private double gpa;
+    private int credits;
+    private double balance;
+    private boolean transfer;
+    private ArrayList<String> enrolledCourses;
+    
+    public Student(String lFirstName, String lLastName, int lId, String lMajor, double lGpa, int lCredits ){
+        super(lFirstName, lLastName, lId);
+        this.major = lMajor;
+        this.gpa = lGpa;
+        this.credits = lCredits;
+        balance = 0;
+        enrolledCourses = new ArrayList();        
+    }
+    
+    public String getMajor(){
+        return major;
+    }
+    
+    public double getGPA(){
+        return gpa;
+    }
+    
+    public int getCredits(){
+        return credits;
+    }
+    
+    public boolean isTransfer(){
+        return transfer;
+    }
+    
+    public double getBalance(){
+        return balance;
+    }
+    
+    public ArrayList<String> getEnrolledCourses(){
+        return enrolledCourses;
+    }
+    
+    public void setMajor(String lMajor){
+        this.major = lMajor;
+    }
+    
+    public void setGPA(double lGpa){
+        this.gpa = lGpa;
+    }
+    
+    public void setCredits(int LCredits){
+        this.credits = LCredits;
+    }
+    
+    public void setTransfer(boolean lTransfer){
+        this.transfer = lTransfer;
+    }
+    
+    public void setBalance(double Lbalance){
+        this.balance = Lbalance;
+    }
+    
+    public void addCourse(String course){
+        this.enrolledCourses.add(course);
+    }
+    
+    public boolean dropCourse(String course){
+        boolean dropped = (enrolledCourses.contains(course));
+        return dropped;
+    }
+    
+    @Override
+    public void display(){
+        System.out.println("Name: " + this.getFirstName() + " " + this.getLastName() +
+                           "\nID: " + this.getId() +
+                           "\nMajor: " + major + "\nGPA: " + gpa + "\nNumber of credits: " + credits
+                           + "\nEnrolled Courses: ");
+        for (int i = 0; i < enrolledCourses.size(); i++){
+            System.out.println("\t" + enrolledCourses.get(i));
+        }
+    }
+    
+    @Override
+    public String toString(){
+        return "Student - " + this.getFirstName() + " " + this.getLastName();
+    }       
+}
