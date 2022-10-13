@@ -1,0 +1,42 @@
+/**
+ *
+ * @author mohni
+ */
+public class Person {
+    private String firstName;
+    private String lastName;
+    private int id;
+    
+    public Person(String lFirstName, String lLastName, int lId){
+        this.firstName = lFirstName;
+        this.lastName = lLastName;
+        this.id = lId;
+    }
+    
+    public String getFirstName(){
+        return firstName;
+    }
+    
+    public String getLastName(){
+        return lastName;
+    }
+    
+    public int getId(){
+        return id;
+    }
+    
+    public void display(){
+        System.out.println("Name: " + firstName + " " + lastName + "\nID: " + id );
+    }
+    
+    @Override
+    public boolean equals(Object other){
+        if (other == null){
+            return false;
+        }
+        if (this.getClass() != other.getClass()){
+            return false;
+        }
+        return this.getId() == ((Person) other).getId();
+    }    
+}
