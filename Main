@@ -1,0 +1,59 @@
+import java.util.ArrayList;
+/**
+ *
+ * @author mohni
+ */
+public class InheritanceLab {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {        
+        System.out.println("\n\n*** PART A ***");
+        Student s1 = new Student("Xavier", "Cato", 900111222, "CS", 3.5, 75);
+        s1.setTransfer(true);
+        s1.setBalance(100);
+        s1.addCourse("Java Programming");
+        s1.addCourse("Calculus");
+        
+        s1.display();
+        
+        
+        
+        System.out.println("\n\n*** PART B ***");
+        
+        Student s2 = new Student("Katherine", "Johnson", 900, "CS", 4.0, 100);
+        Student s3 = new Student("Roy", "Clay", 901, "Biology", 3.2, 85);
+        Student s4 = new Student("Kimberly", "Bryant", 902, "EE", 3.0, 80);
+        Professor prof1 = new Professor("Mary", "Castro", 300, "CS", 80000);
+        
+        prof1.addAdvisee(s2);
+        prof1.addAdvisee(s3);
+        prof1.addAdvisee(s4);
+        
+        prof1.display();
+        
+        
+        
+        System.out.println("\n\n*** PART C ***");
+        
+        System.out.println(s1.equals(s2));
+        Student s1Duplicate = new Student("Xavier", "Cato", 900111222, "CS", 3.5, 75);
+        System.out.println(s1.equals(s1Duplicate));
+        
+        
+        
+        System.out.println("\n\n*** PART D ***");
+        Person[] personArray = {s1, s2, prof1};
+        ArrayList<Person> personList = new ArrayList();
+        personList.add(s1);              
+        personList.add(s2);
+        personList.add(prof1);
+        
+        System.out.println("Contents of personList");
+        
+        for (Person person : personList){
+            System.out.println(person);
+        }
+    }    
+}
