@@ -1,0 +1,69 @@
+import java.util.ArrayList;
+/**
+ *
+ * @author mohni
+ */
+public class Professor extends Person{
+    private String department;
+    private double salary;
+    private ArrayList<Student> advisees;
+    
+    public Professor(String lFirstName, String lLastName, int lId, String lDepartment, double lSalary){
+        super(lFirstName, lLastName, lId);
+        this.department = lDepartment;
+        this.salary = lSalary;
+        this.advisees = new ArrayList();
+    }
+    
+    public String getDepartment(){
+        return department;
+    }
+    
+    public double getSalary(){
+        return salary;
+    }
+    
+    public ArrayList<Student> getAdvisees(){
+        return advisees;
+    }
+    
+    public void setDepartment(String lDepartment){
+        this.department = lDepartment;
+    }
+    
+    public void setSalary(double lSalary){
+        this.salary = lSalary;
+    }
+    
+    public void addAdvisee(Student lStudent){
+        advisees.add(lStudent);
+    }
+    
+    public boolean removeAdvisee(int StudentID){
+        boolean removed = false;
+        for (int i = 0; i < advisees.size(); i++){
+            if (advisees.get(i).getId() == StudentID){
+                advisees.remove(i);
+                removed = true;
+            }
+            else {
+                removed = false;
+            }
+        }
+        return removed;
+    }    
+    
+    @Override
+    public void display(){
+        super.display();
+        System.out.println("Department: " + department + "\tSalary: " + salary);
+        System.out.println("Advisees: ");
+        for (Student s : advisees){
+            System.out.println("\t" + s.getFirstName() + " " + s.getLastName());
+        }
+    }
+    @Override
+    public String toString(){
+        return "Professor - " + this.getFirstName() + " " + this.getLastName();
+    }    
+}   
